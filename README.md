@@ -1,8 +1,10 @@
 # WELCOME
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 
+![](images/Screenshot_Cover.png)
+
 In this project, I use Python's [manim](https://github.com/3b1b/manim) package to create videos that will help Grade 12 Science students to learn through visuals like in the famous YouTube channel of the author of the _manim_ package [3Blue1Brown](https://www.youtube.com/@3blue1brown).
-This project intents to cover the _Curriculum and Assessment Policy Statemen(CAPS)_ curriculum of South Africa. Enough research has been done to show that when learners/kids learn abstract STEM consepts through visualisations, they tend to understand the content better.
+This project intents to cover the _Curriculum and Assessment Policy Statemen(CAPS)_ curriculum of South Africa. Enough research has been done to show that when learners/kids learn abstract STEM consepts through visualisations, they tend to understand the content better. 
 
 ## PROJECT GOALS
 There are a number of goals I wish to achieve with this initiative, most are based from my experience as a learner/student and when I used to help peers and those younger understand abstract Math or Physics concepts. The initiative hopes to achieve :
@@ -23,6 +25,10 @@ Since I am the only one working on the project(_I'd appreciate and LOVE collabor
 - Statistics
 - Trigonometry
 - Geometry(Analytical & Euclidean)
+
+The videos will have a voice-over and will be made free to the public. See a demo below.
+
+![](SquareToCircle_Demo.gif)
 
 #### Wish me luck! Fingers crossed
 
