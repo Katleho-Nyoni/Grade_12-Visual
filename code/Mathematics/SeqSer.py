@@ -1,5 +1,5 @@
 from manim import *
- #manim. 
+ manim. 
 
 class Test(Scene):
     def construct(self):
@@ -20,47 +20,36 @@ class Test(Scene):
         self.play(Transform(h1,h2)); self.wait(2)    
         self.play(ReplacementTransform(h1,hh1))
         self.wait(2)
+        # 1.1 SEQUENCE
+        s1 = Tex("a list of ordered numbers separated by a comma").set_color(BLUE)
+        m1 = MathTex("3,6,9,12,...,3k").to_edge(UP,buff = 2)
+        m_1 = MathTex("T_1 = 3"); m_2 = MathTex("T_2 = 6"); m_3 = MathTex("T_3 = 9"); m_n = MathTex("T_n = 3k")
+        m2 = MathTex("T_1,T_2,T_3,T_4,...,T_n").to_edge(DOWN,buff = 2)
+        
+        self.play(Write(s1),run_time = 2); self.wait(2)
+        self.play(FadeOut(s1)); self.wait()
+        self.play(Write(m1),run_time = 3); self.wait(2)
+
+
+        self.play(Write(m_1)); self.wait(2)
+        self.play(Transform(m_1,m_2)); self.wait(2)
+        self.play(Transform(m_1,m_3)); self.wait(3)
+        self.play(Transform(m_1,m_n)); self.wait(2)
+        self.play(FadeOut(m_1)); self.wait()
+        self.play(Write(m2),run_time = 3); self.wait(2)
+        self.play(FadeOut(m1),FadeOut(m2)); self.wait()
+
+        # 1.2 SERIES
         self.play(ReplacementTransform(hh1,hh2))
         self.wait(2)
 
 
-        # 1.1 SEQUENCE
-        # self.play(Write(h1))
-        # self.play(h1.animate.to_edge(UL,buff = 1))
-        # self.wait(2)
-        # s1 = Tex("a list of ordered numbers separated by a comma")
-        #     # b3 = SurroundingRectangle(s1,color = BLUE,buff = 0.5)
-        # m1 = MathTex("3,6,9,12,...,3n")
-        # # More Variables
-        # s_1 = Tex("Where").to_edge(DL,buff = 3)
-        # s_2 = Tex("is the").to_edge(ORIGIN,buff = 3)
-        # s_3 = Tex("denoted").to_edge(DR,buff = 3)
-        # m_1 = MathTex("3")
-        # m_2 = MathTex("6")
-        # m_3 = MathTex("9")
-        # m_4 = MathTex("12")
-        # m_n = MathTex("3n")
-        # mm_1 = MathTex("T_1")       
-        # mm_2 = MathTex("T_2")       
-        # mm_3 = MathTex("T_3")       
-        # mm_4 = MathTex("T_4")       
-        # mm_n = MathTex("T_n")       
-        # mm_n1 = MathTex("T_n = 3n")       
-        # m2 = MathTex("T_1,T_2,T_3,T_4,...,T_n").to_edge(DOWN,buff = 2)
-        # self.play(Write(s1),run_time = 4)
-        # self.play(FadeOut(s1))
-        # self.wait()
-        # self.play(Write(m1),run_time = 3)
-        # # self.play(Write(s_1))
-        # self.play(Create(m2),run_time = 4)
-        # self.wait()
-        # # 1.2 SERIES
-        # self.play(h1.animate.to_edge(UR,buff = 1))
-        # self.play(Transform(h1,h2),FadeOut(m1),FadeOut(m2))
-        # self.wait()
-        # s2 = Tex("the sum of individual terms separated by an operator")
-        # m3 = MathTex("3+6+9+12+...+3n")
-        # m4 = MathTex("\sum_{n=1}^\infty S_k = T_1+T_2+T_3+T_4+...+T_k").to_edge(DOWN,buff = 2)
+        
+        s2 = Tex("the sum of individual terms separated by an operator").set_color(RED)
+        m3 = MathTex("3+6+9+12+...+3n").to_edge(UP,buff = 2)
+        m_1 = MathTex("S_1 = 3"); m_2 = MathTex("S_2 = 3 + 6"); m_3 = MathTex("S_3= 3 + 6 + 9")
+        mm1 = MathTex("S_1 = T_1").next_to(m_1); mm2 = MathTex("S_2 = T_1 + T_2").next_to(m_2); mm3 = MathTex("S_3 = T_1 + T_2 + T_3").next_to(m_3)
+        m4 = MathTex("\sum_{n=1}^\infty S_k = T_1+T_2+T_3+T_4+...+T_k").to_edge(DOWN,buff = 2)
         # self.play(Write(s2),run_time = 3)
         #     # self.play(Create(b3))       
         # self.play(FadeOut(s2))
