@@ -1,13 +1,22 @@
 from manim import *
  manim. 
 
-class Test(Scene):
-    def construct(self):
         # Let *** denote index
         # Let b*** denote boxes or surrounding shapes
         # Let h*** denote heading
         # Let s*** denote sentences
         # Let m*** denote mathematical expressions
+
+        ImPath= "C:/Users/Lord Eagle/Documents/GitHub/Grade_12-Visual/images"
+
+class Test(Scene):
+    def construct(self):
+        
+        
+        # MOTIVATION 
+        Logo = ImageMobject(f"{ImPath}\\Logo.png")
+        self.play(FadeIn(Logo));self.wait()
+        self.play(Logo.animate.scale(0.1).to_corner(DR));self.wait(2)
 
         head = Tex("Sequence and Series").to_edge(UL,buff = 0.5).set_color_by_gradient(RED,BLUE)       
         h1 = Tex("Sequence"); h2 = Tex("Series")
@@ -43,18 +52,14 @@ class Test(Scene):
         self.play(ReplacementTransform(hh1,hh2))
         self.wait(2)
 
-
-        
         s2 = Tex("the sum of individual terms separated by an operator").set_color(RED)
-        m3 = MathTex("3+6+9+12+...+3n").to_edge(UP,buff = 2)
+        m3 = MathTex("3+6+9+12+...+3k").to_edge(UP,buff = 2)
         m_1 = MathTex("S_1 = 3"); m_2 = MathTex("S_2 = 3 + 6"); m_3 = MathTex("S_3= 3 + 6 + 9")
         mm1 = MathTex("S_1 = T_1").next_to(m_1); mm2 = MathTex("S_2 = T_1 + T_2").next_to(m_2); mm3 = MathTex("S_3 = T_1 + T_2 + T_3").next_to(m_3)
         m4 = MathTex("\sum_{n=1}^\infty S_k = T_1+T_2+T_3+T_4+...+T_k").to_edge(DOWN,buff = 2)
-        # self.play(Write(s2),run_time = 3)
-        #     # self.play(Create(b3))       
-        # self.play(FadeOut(s2))
-        # self.wait()
-        # self.play(Write(m3),run_time = 3)
+        self.play(Write(s2),run_time = 3); self.wait(2)
+        self.play(FadeOut(s2)); self.wait()
+        self.play(Create(m3),run_time = 3); self.wait(2)
         # self.play(Create(m4),run_time = 4)
         # self.wait()
         # h3 = Tex("Arithmetic Sequence").to_edge(UL,buff = 1)
