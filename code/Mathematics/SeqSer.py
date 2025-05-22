@@ -7,8 +7,26 @@ from manim import *
         # Let s*** denote sentences
         # Let m*** denote mathematical expressions
 
+class Motivation(Scene):
+    def construct(self):
+        ImPath= "C:/Users/Lord Eagle/Documents/GitHub/Grade_12-Visual/images"
+               
+        Logo = ImageMobject(f"{ImPath}\\Logo.png")
+        self.play(FadeIn(Logo));self.wait()
+        self.play(Logo.animate.scale(0.1).to_corner(DR));self.wait(2)
+        head = Tex("Sequence and Series").to_edge(UR,buff = 0.5).set_color_by_gradient(PINK,BLUE)       
+        h1 = Tex("Sequence"); h2 = Tex("Series")
+        hh1 = Tex("SEQUENCE").to_edge(UL,buff = 1).set_color(PINK); hh2 = Tex("SERIES").to_edge(UR,buff = 1).set_color(BLUE)   
 
-class Test(Scene):
+        self.play(Write(head))       
+        self.play(head.animate.scale(0.5).to_edge(UL),run_time = 2)
+        self.wait(2)
+        History = Tex("HISTORY").to_edge(UP,buff = 1).set_color(BLUE);self.play(Write(History)); self.wait(1)
+        Zeno = ImageMobject(f"{ImPath}\\ZenoVanElea.jpg").scale(1.5)
+        self.play(FadeIn(Zeno));self.wait()
+
+
+class Katieum(Scene):
     def construct(self):
         ImPath= "C:/Users/Lord Eagle/Documents/GitHub/Grade_12-Visual/images"
                
@@ -23,6 +41,10 @@ class Test(Scene):
         self.play(Write(head))       
         self.play(head.animate.scale(0.5).to_edge(UL),run_time = 2)
         self.wait(2)
+        History = Tex("History").to_edge(UP,buff = 1).set_color(BLUE);self.play(Write(History)); self.wait(1)
+        Zeno = ImageMobject(f"{ImPath}\\ZenoVanElea.png")
+
+
         self.play(Write(h1)); self.wait() 
         self.play(Transform(h1,h2)); self.wait(2)    
         self.play(ReplacementTransform(h1,hh1))
