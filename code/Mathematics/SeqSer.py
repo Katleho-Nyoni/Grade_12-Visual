@@ -7,6 +7,37 @@ from manim import *
         # Let s*** denote sentences
         # Let m*** denote mathematical expressions
 
+class ZenosDichotomy(Scene):
+    def construct(self):
+        total_length = 10  
+        origin = LEFT * total_length / 2
+
+        full_line = Line(start=origin, end=origin + RIGHT * total_length, color=WHITE)
+        self.play(Create(full_line))
+
+        # Label the full length as 1
+        one_label = Tex("1").next_to(full_line.get_end(), DOWN)
+        self.play(Write(one_label))
+
+        # Draw subdivisions
+        current_x = origin
+        length = total_length
+        terms = 6  # Number of subdivisions to show
+        labels = []
+
+        for i in range(1, terms + 1):
+            length /= 2
+            next_x = current_x + LEFT * length
+            arc = ArcBetweenPoints(current_x, next_x, angle=-PI/2, color=BLUE)
+            label = Tex(f"1/{2**i}").scale(0.6).next_to(arc, UP, buff=0.1)
+            labels.append(label)
+
+            # Show arc and label
+            self.play(Create(arc), Write(label), run_time= 2)
+            current_x = next_x
+
+        self.wait(2)
+
 class Motivation(Scene):
     def construct(self):
         ImPath= "C:/Users/Lord Eagle/Documents/GitHub/Grade_12-Visual/images"
@@ -30,10 +61,11 @@ class Motivation(Scene):
         Im2 = ImageMobject(f"{ImPath}\\Heat-wave.jpg").scale(1.5)
         Im3 = ImageMobject(f"{ImPath}\\MeerKATDeep2Composite.jpg").scale(1.5)
         Im4 = ImageMobject(f"{ImPath}\\DEEP2heatCropped.jpg").scale(1.5)
-        self.play(FadeIn(Im1));self.wait()
-        self.play(Transform(Im1,Im2));self.wait()
-        self.play(Transform(Im1,Im3));self.wait()
-        self.play(Transform(Im1,Im4));self.wait()
+        self.play(FadeIn(Im1)); self.wait()
+        self.play(Transform(Im1,Im2)); self.wait()
+        self.play(Transform(Im1,Im3)); self.wait()
+        self.play(Transform(Im1,Im4)); self.wait()
+        self.play(Im1.animate.rotate(2*PI),run_time = 2); self.wait()
 
 
 
@@ -62,7 +94,7 @@ class Katieum(Scene):
         self.play(ReplacementTransform(h1,hh1))
         self.wait(2)
         # 1.1 SEQUENCE
-        s1 = Tex("a list of ordered numbers separated by a comma").set_color(BLUE)
+        s1 = Tex("a list of ORDERED numbers separated by a comma").set_color(BLUE)
         m1 = MathTex("3,6,9,12,...,3k").to_edge(UP,buff = 2)
         m_1 = MathTex("T_1 = 3"); m_2 = MathTex("T_2 = 6"); m_3 = MathTex("T_3 = 9"); m_n = MathTex("T_n = 3k")
         m2 = MathTex("T_1,T_2,T_3,T_4,...,T_n").to_edge(DOWN,buff = 2)
