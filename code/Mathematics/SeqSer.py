@@ -1,5 +1,5 @@
 from manim import *
- manim. 
+ #manim. 
 
         # Let *** denote index
         # Let b*** denote boxes or surrounding shapes
@@ -7,23 +7,21 @@ from manim import *
         # Let s*** denote sentences
         # Let m*** denote mathematical expressions
 
-        ImPath= "C:/Users/Lord Eagle/Documents/GitHub/Grade_12-Visual/images"
 
 class Test(Scene):
     def construct(self):
-        
-        
+        ImPath= "C:/Users/Lord Eagle/Documents/GitHub/Grade_12-Visual/images"
+               
         # MOTIVATION 
         Logo = ImageMobject(f"{ImPath}\\Logo.png")
         self.play(FadeIn(Logo));self.wait()
         self.play(Logo.animate.scale(0.1).to_corner(DR));self.wait(2)
-
-        head = Tex("Sequence and Series").to_edge(UL,buff = 0.5).set_color_by_gradient(RED,BLUE)       
+        head = Tex("Sequence and Series").to_edge(UR,buff = 0.5).set_color_by_gradient(PINK,BLUE)       
         h1 = Tex("Sequence"); h2 = Tex("Series")
-        hh1 = Tex("SEQUENCE").to_edge(UL,buff = 1).set_color(RED); hh2 = Tex("SERIES").to_edge(UR,buff = 1).set_color(BLUE)   
+        hh1 = Tex("SEQUENCE").to_edge(UL,buff = 1).set_color(PINK); hh2 = Tex("SERIES").to_edge(UR,buff = 1).set_color(BLUE)   
 
         self.play(Write(head))       
-        self.play(head.animate.scale(0.5).to_edge(UR),run_time = 2)
+        self.play(head.animate.scale(0.5).to_edge(UL),run_time = 2)
         self.wait(2)
         self.play(Write(h1)); self.wait() 
         self.play(Transform(h1,h2)); self.wait(2)    
@@ -52,7 +50,7 @@ class Test(Scene):
         self.play(ReplacementTransform(hh1,hh2))
         self.wait(2)
 
-        s2 = Tex("the sum of individual terms separated by an operator").set_color(RED)
+        s2 = Tex("the sum of individual terms separated by an operator").set_color(PINK)
         m3 = MathTex("3+6+9+12+...+3k").to_edge(UP,buff = 2)
         m_1 = MathTex("S_1 = 3"); m_2 = MathTex("S_2 = 3 + 6"); m_3 = MathTex("S_3= 3 + 6 + 9")
         mm1 = MathTex("S_1 = T_1").next_to(m_1); mm2 = MathTex("S_2 = T_1 + T_2").next_to(m_2); mm3 = MathTex("S_3 = T_1 + T_2 + T_3").next_to(m_3)
