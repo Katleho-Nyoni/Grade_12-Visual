@@ -23,7 +23,19 @@ class Motivation(Scene):
         self.wait(2)
         History = Tex("HISTORY").to_edge(UP,buff = 1).set_color(BLUE);self.play(Write(History)); self.wait(1)
         Zeno = ImageMobject(f"{ImPath}\\ZenoVanElea.jpg").scale(1.5)
-        self.play(FadeIn(Zeno));self.wait()
+        self.play(FadeIn(Zeno));self.wait(2)
+        Motivation = Tex("APPLICATIONS").to_edge(UP,buff = 1).set_color(BLUE)
+        self.play(FadeOut(Zeno),Transform(History, Motivation));self.wait()
+        Im1 = ImageMobject(f"{ImPath}\\Satellite.jpg").scale(1.5)
+        Im2 = ImageMobject(f"{ImPath}\\Heat-wave.jpg").scale(1.5)
+        Im3 = ImageMobject(f"{ImPath}\\MeerKATDeep2Composite.jpg").scale(1.5)
+        Im4 = ImageMobject(f"{ImPath}\\DEEP2heatCropped.jpg").scale(1.5)
+        self.play(FadeIn(Im1));self.wait()
+        self.play(Transform(Im1,Im2));self.wait()
+        self.play(Transform(Im1,Im3));self.wait()
+        self.play(Transform(Im1,Im4));self.wait()
+
+
 
 
 class Katieum(Scene):
