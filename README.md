@@ -1,6 +1,6 @@
 # WELCOME
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) 
-![](images/Screenshot_Cover.png)
+![](images/Cover.jpg)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://choosealicense.com/licenses/mit/)
 
 In this project, I use Python's [manim](https://github.com/3b1b/manim) package to create videos that will help Grade 12 Science students to learn through visuals like in the famous YouTube channel of the author of the _manim_ package [3Blue1Brown](https://www.youtube.com/@3blue1brown).
@@ -27,8 +27,8 @@ Since I am the only one working on the project(_I'd appreciate and LOVE collabor
 - Geometry(Analytical & Euclidean)
 
 The videos will have a voice-over and will be made free to the public. See a demo below.
-
-![](SquareToCircle_Demo.gif)
+### Click to see Demo on YouTube
+[Katieum](https://www.youtube.com/watch?v=XwBtjpcyG-8)
 
 ## License
 This project is licensed under the [MIT License](LICENSE). 
