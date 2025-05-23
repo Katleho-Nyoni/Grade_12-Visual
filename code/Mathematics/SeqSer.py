@@ -1,5 +1,5 @@
 from manim import *
- manim. 
+ #manim. 
 
         # Let *** denote index
         # Let b*** denote boxes or surrounding shapes
@@ -41,23 +41,6 @@ class ZenosDichotomy(Scene):
         geom = Tex(f"$$...;\\left(\\frac{1}{2}\\right)^n;...;\\frac{1}{8};\\frac{1}{4};\\frac{1}{2};1 $$").to_edge(DOWN,buff = 1)
         self.play(Write(geom));self.wait(2)
 
-                # ...existing code...
-        arcs = []
-        labels = []
-
-        current_x = start_point
-        for i in range(1, terms + 1):
-            length /= 2
-            next_x = current_x + LEFT * length
-            arc = ArcBetweenPoints(current_x, next_x, angle=PI/2, color=BLUE)
-            label = Tex(f"1/{2**i}").scale(0.6).next_to(arc, UP, buff=0.1)
-            arcs.append(arc)
-            labels.append(label)
-
-            # Show arc and label
-            self.play(Create(arc), Write(label), run_time=2)
-            current_x = next_x
-
         # Remove arcs, labels, and line
         self.play(
             *[FadeOut(arc) for arc in arcs],
@@ -65,7 +48,6 @@ class ZenosDichotomy(Scene):
             FadeOut(full_line),
             FadeOut(one_label)
         )
-        # ...existing code...
 
         Geom = Tex(f"$$ 1; \\frac{1}{2};\\frac{1}{4};\\frac{1}{8};...;\\left(\\frac{1}{2}\\right)^n;... $$")
         self.play(Transform(geom,Geom))
@@ -122,6 +104,17 @@ class Motivation(Scene):
         self.wait(2)
         geom = MathTex("$$...;\\frac{1}{2}^n;...;\\frac{1}{4};\\frac{1}{2};1 $$").to_edge(DOWN,buff = 1)
         self.play(Write(geom));self.wait(2)
+        self.play(
+            *[FadeOut(arc) for arc in arcs],
+            *[FadeOut(label) for label in labels],
+            FadeOut(full_line),
+            FadeOut(one_label)
+        )
+
+        Geom = Tex(f"$$ 1; \\frac{1}{2};\\frac{1}{4};\\frac{1}{8};...;\\left(\\frac{1}{2}\\right)^n;... $$")
+        self.play(Transform(geom,Geom))
+
+        self.play(geom.animate.to_edge(ORIGIN))
 
 
         Motivation = Tex("APPLICATIONS").to_edge(UP,buff = 1).set_color(BLUE)
@@ -156,6 +149,64 @@ class Katieum(Scene):
         self.wait(2)
         History = Tex("History").to_edge(UP,buff = 1).set_color(BLUE);self.play(Write(History)); self.wait(1)
         Zeno = ImageMobject(f"{ImPath}\\ZenoVanElea.png")
+        self.play(FadeIn(Zeno));self.wait(2)
+        self.play(FadeOut(Zeno))
+        # Zeno's Paradox - Dichotomy
+        total_length = 10  
+        origin = LEFT * total_length / 2
+
+        full_line = Line(start=origin, end=origin + RIGHT * total_length, color=WHITE)
+        self.play(Create(full_line))
+
+        # Label the full length as 1
+        one_label = Tex("1").next_to(full_line.get_end(), DOWN)
+        self.play(Write(one_label))
+
+        # Draw subdivisions (arcs above the line from right to left)
+        start_point = origin + RIGHT * total_length  # Start at the right end (labeled "1")
+        length = total_length
+        terms = 6  # Number of subdivisions to show
+        labels = []
+
+        current_x = start_point
+        for i in range(1, terms + 1):
+            length /= 2
+            next_x = current_x + LEFT * length
+            arc = ArcBetweenPoints(current_x, next_x, angle=PI/2, color=BLUE)
+            label = Tex(f"1/{2**i}").scale(0.6).next_to(arc, UP, buff=0.1)
+            labels.append(label)
+
+            # Show arc and label
+            self.play(Create(arc), Write(label), run_time= 2)
+            current_x = next_x
+
+        self.wait(2)
+        geom = MathTex("$$...;\\frac{1}{2}^n;...;\\frac{1}{4};\\frac{1}{2};1 $$").to_edge(DOWN,buff = 1)
+        self.play(Write(geom));self.wait(2)
+        self.play(
+            *[FadeOut(arc) for arc in arcs],
+            *[FadeOut(label) for label in labels],
+            FadeOut(full_line),
+            FadeOut(one_label)
+        )
+
+        Geom = Tex(f"$$ 1; \\frac{1}{2};\\frac{1}{4};\\frac{1}{8};...;\\left(\\frac{1}{2}\\right)^n;... $$")
+        self.play(Transform(geom,Geom))
+
+        self.play(geom.animate.to_edge(ORIGIN))
+
+
+        Motivation = Tex("APPLICATIONS").to_edge(UP,buff = 1).set_color(BLUE)
+        self.play(Transform(History, Motivation));self.wait()
+        Im1 = ImageMobject(f"{ImPath}\\Satellite.jpg").scale(1.5)
+        Im2 = ImageMobject(f"{ImPath}\\Heat-wave.jpg").scale(1.5)
+        Im3 = ImageMobject(f"{ImPath}\\MeerKATDeep2Composite.jpg").scale(1.5)
+        Im4 = ImageMobject(f"{ImPath}\\DEEP2heatCropped.jpg").scale(1.5)       
+        self.play(FadeIn(Im1)); self.wait()
+        self.play(Transform(Im1,Im2)); self.wait()
+        self.play(Transform(Im1,Im3)); self.wait()
+        self.play(Transform(Im1,Im4)); self.wait()
+        self.play(FadeOut(Im1),FadeOut(History)); self.wait()
 
 
         self.play(Write(h1)); self.wait() 
