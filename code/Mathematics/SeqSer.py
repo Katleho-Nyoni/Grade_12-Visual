@@ -23,6 +23,7 @@ class ZenosDichotomy(Scene):
         start_point = origin + RIGHT * total_length  # Start at the right end (labeled "1")
         length = total_length
         terms = 6  # Number of subdivisions to show
+        arcs = []
         labels = []
 
         current_x = start_point
@@ -31,32 +32,31 @@ class ZenosDichotomy(Scene):
             next_x = current_x + LEFT * length
             arc = ArcBetweenPoints(current_x, next_x, angle=PI/2, color=BLUE)
             label = Tex(f"1/{2**i}").scale(0.6).next_to(arc, UP, buff=0.1)
+            arcs.append(arc)
             labels.append(label)
 
             # Show arc and label
-            self.play(Create(arc), Write(label), run_time= 2)
+            self.play(Create(arc), Write(label), run_time=2)
             current_x = next_x
 
         self.wait(2)
         geom = Tex(f"$$...;\\left(\\frac{1}{2}\\right)^n;...;\\frac{1}{8};\\frac{1}{4};\\frac{1}{2};1 $$").to_edge(DOWN,buff = 1)
         self.play(Write(geom));self.wait(2)
 
-        # Remove arcs, labels, and line
+        Geom = Tex(f"$$ 1; \\frac{1}{2};\\frac{1}{4};\\frac{1}{8};...;\\left(\\frac{1}{2}\\right)^n;... $$")
         self.play(
+            FadeOut(full_line),
+            FadeOut(one_label),
             *[FadeOut(arc) for arc in arcs],
             *[FadeOut(label) for label in labels],
-            FadeOut(full_line),
-            FadeOut(one_label)
         )
-
-        Geom = Tex(f"$$ 1; \\frac{1}{2};\\frac{1}{4};\\frac{1}{8};...;\\left(\\frac{1}{2}\\right)^n;... $$")
         self.play(Transform(geom,Geom))
 
         self.play(geom.animate.to_edge(ORIGIN))
 
 class Motivation(Scene):
     def construct(self):
-        ImPath= "C:/Users/Lord Eagle/Documents/GitHub/Grade_12-Visual/images"
+        ImPath= r"C:\Users\Lord Eagle\Documents\GitHub\Grade_12-Visual\images"
                
         Logo = ImageMobject(f"{ImPath}\\Logo.png")
         self.play(FadeIn(Logo));self.wait()
@@ -87,6 +87,7 @@ class Motivation(Scene):
         start_point = origin + RIGHT * total_length  # Start at the right end (labeled "1")
         length = total_length
         terms = 6  # Number of subdivisions to show
+        arcs = []
         labels = []
 
         current_x = start_point
@@ -95,23 +96,24 @@ class Motivation(Scene):
             next_x = current_x + LEFT * length
             arc = ArcBetweenPoints(current_x, next_x, angle=PI/2, color=BLUE)
             label = Tex(f"1/{2**i}").scale(0.6).next_to(arc, UP, buff=0.1)
+            arcs.append(arc)
             labels.append(label)
 
             # Show arc and label
-            self.play(Create(arc), Write(label), run_time= 2)
+            self.play(Create(arc), Write(label), run_time=2)
             current_x = next_x
 
         self.wait(2)
-        geom = MathTex("$$...;\\frac{1}{2}^n;...;\\frac{1}{4};\\frac{1}{2};1 $$").to_edge(DOWN,buff = 1)
+        geom = Tex(f"$$...;\\left(\\frac{1}{2}\\right)^n;...;\\frac{1}{8};\\frac{1}{4};\\frac{1}{2};1 $$").to_edge(DOWN,buff = 1)
         self.play(Write(geom));self.wait(2)
-        self.play(
-            *[FadeOut(arc) for arc in arcs],
-            *[FadeOut(label) for label in labels],
-            FadeOut(full_line),
-            FadeOut(one_label)
-        )
 
         Geom = Tex(f"$$ 1; \\frac{1}{2};\\frac{1}{4};\\frac{1}{8};...;\\left(\\frac{1}{2}\\right)^n;... $$")
+        self.play(
+            FadeOut(full_line),
+            FadeOut(one_label),
+            *[FadeOut(arc) for arc in arcs],
+            *[FadeOut(label) for label in labels],
+        )
         self.play(Transform(geom,Geom))
 
         self.play(geom.animate.to_edge(ORIGIN))
@@ -134,10 +136,15 @@ class Motivation(Scene):
 
 class Katieum(Scene):
     def construct(self):
-        ImPath= "C:/Users/Lord Eagle/Documents/GitHub/Grade_12-Visual/images"
+        ImPath= r"C:\Users\Lord Eagle\Documents\GitHub\Grade_12-Visual\images"
                
         # MOTIVATION 
+        Brand = ImageMobject(f"{ImPath}\\KATIEUM.png")
         Logo = ImageMobject(f"{ImPath}\\Logo.png")
+        Welcome = Tex("WELCOM TO").next_to(Brand,UP).set_color_by_gradient(PINK,
+        BLUE)
+        self.play(FadeIn(Brand),Write(Welcome));self.wait()
+        self.play(FadeOut(Brand),FadeOut(Welcome))
         self.play(FadeIn(Logo));self.wait()
         self.play(Logo.animate.scale(0.1).to_corner(DR));self.wait(2)
         head = Tex("Sequence and Series").to_edge(UR,buff = 0.5).set_color_by_gradient(PINK,BLUE)       
@@ -147,10 +154,11 @@ class Katieum(Scene):
         self.play(Write(head))       
         self.play(head.animate.scale(0.5).to_edge(UL),run_time = 2)
         self.wait(2)
-        History = Tex("History").to_edge(UP,buff = 1).set_color(BLUE);self.play(Write(History)); self.wait(1)
-        Zeno = ImageMobject(f"{ImPath}\\ZenoVanElea.png")
-        self.play(FadeIn(Zeno));self.wait(2)
-        self.play(FadeOut(Zeno))
+        History = Tex("HISTORY").to_edge(UP,buff = 1).set_color(BLUE);self.play(Write(History)); self.wait(1)
+        Zeno = ImageMobject(f"{ImPath}\\ZenoVanElea.jpg")
+        ZenosName = Tex("Zeno of Elea").next_to(Zeno,DOWN)
+        self.play(FadeIn(Zeno),Write(ZenosName));self.wait(2)
+        self.play(FadeOut(Zeno),FadeOut(ZenosName))
         # Zeno's Paradox - Dichotomy
         total_length = 10  
         origin = LEFT * total_length / 2
@@ -166,6 +174,7 @@ class Katieum(Scene):
         start_point = origin + RIGHT * total_length  # Start at the right end (labeled "1")
         length = total_length
         terms = 6  # Number of subdivisions to show
+        arcs = []
         labels = []
 
         current_x = start_point
@@ -174,27 +183,28 @@ class Katieum(Scene):
             next_x = current_x + LEFT * length
             arc = ArcBetweenPoints(current_x, next_x, angle=PI/2, color=BLUE)
             label = Tex(f"1/{2**i}").scale(0.6).next_to(arc, UP, buff=0.1)
+            arcs.append(arc)
             labels.append(label)
 
             # Show arc and label
-            self.play(Create(arc), Write(label), run_time= 2)
+            self.play(Create(arc), Write(label), run_time=2)
             current_x = next_x
 
         self.wait(2)
-        geom = MathTex("$$...;\\frac{1}{2}^n;...;\\frac{1}{4};\\frac{1}{2};1 $$").to_edge(DOWN,buff = 1)
+        geom = Tex(f"$$...;\\left(\\frac{1}{2}\\right)^n;...;\\frac{1}{8};\\frac{1}{4};\\frac{1}{2};1 $$").to_edge(DOWN,buff = 1)
         self.play(Write(geom));self.wait(2)
-        self.play(
-            *[FadeOut(arc) for arc in arcs],
-            *[FadeOut(label) for label in labels],
-            FadeOut(full_line),
-            FadeOut(one_label)
-        )
 
         Geom = Tex(f"$$ 1; \\frac{1}{2};\\frac{1}{4};\\frac{1}{8};...;\\left(\\frac{1}{2}\\right)^n;... $$")
+        self.play(
+            FadeOut(full_line),
+            FadeOut(one_label),
+            *[FadeOut(arc) for arc in arcs],
+            *[FadeOut(label) for label in labels],
+        )
         self.play(Transform(geom,Geom))
 
         self.play(geom.animate.to_edge(ORIGIN))
-
+        self.play(FadeOut(geom))
 
         Motivation = Tex("APPLICATIONS").to_edge(UP,buff = 1).set_color(BLUE)
         self.play(Transform(History, Motivation));self.wait()
@@ -236,14 +246,19 @@ class Katieum(Scene):
         self.play(ReplacementTransform(hh1,hh2))
         self.wait(2)
 
-        s2 = Tex("the sum of individual terms separated by an operator").set_color(PINK)
+        s2 = Tex("the sum of individual terms separated by an operator $\\pm$").set_color(PINK)
         m3 = MathTex("3+6+9+12+...+3k").to_edge(UP,buff = 2)
         m_1 = MathTex("S_1 = 3"); m_2 = MathTex("S_2 = 3 + 6"); m_3 = MathTex("S_3= 3 + 6 + 9")
-        mm1 = MathTex("S_1 = T_1").next_to(m_1); mm2 = MathTex("S_2 = T_1 + T_2").next_to(m_2); mm3 = MathTex("S_3 = T_1 + T_2 + T_3").next_to(m_3)
+        mm1 = MathTex("S_1 = T_1").next_to(m_1,DOWN); mm2 = MathTex("S_2 = T_1 + T_2").next_to(m_2,DOWN); mm3 = MathTex("S_3 = T_1 + T_2 + T_3").next_to(m_3,DOWN)
         m4 = MathTex("\sum_{n=1}^\infty S_k = T_1+T_2+T_3+T_4+...+T_k").to_edge(DOWN,buff = 2)
         self.play(Write(s2),run_time = 3); self.wait(2)
         self.play(FadeOut(s2)); self.wait()
         self.play(Create(m3),run_time = 3); self.wait(2)
+        self.play(Write(m_1),Write(mm1)); self.wait(2)
+        self.play(Transform(m_1,m_2),Transform(mm1,mm2)); self.wait(2)
+        self.play(Transform(m_1,m_3),Transform(mm1,mm3)); self.wait(2)
+
+    
         # self.play(Create(m4),run_time = 4)
         # self.wait()
         # h3 = Tex("Arithmetic Sequence").to_edge(UL,buff = 1)
