@@ -27,8 +27,8 @@ Since I am the only one working on the project(_I'd appreciate and LOVE collabor
 - Geometry(Analytical & Euclidean)
 
 The videos will have a voice-over and will be made free to the public. See a demo below.
-### Click to see Demo on YouTube
-[Katieum](https://www.youtube.com/watch?v=XwBtjpcyG-8)
+### Click to see Demo on YouTube :
+[![](images/YouTubeCover.png)](https://www.youtube.com/watch?v=XwBtjpcyG-8)
 
 ## License
 This project is licensed under the [MIT License](LICENSE). 
