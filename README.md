@@ -43,6 +43,8 @@ The videos will have a voice-over and will be made free to the public. See a dem
 ### Click to see Demo on YouTube :
 [![](images/YouTubeCover.png)](https://www.youtube.com/watch?v=XwBtjpcyG-8)
 
+or Visit [TikTok Account](https://tiktok.com/@Visuals.Katieum)
+
 ## License
 This project is licensed under the [MIT License](LICENSE). 
 #### Wish me luck! Fingers crossed🤞🏽
