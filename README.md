@@ -33,7 +33,7 @@ There are a number of goals I wish to achieve with this initiative, most are bas
 - and lastly, hoping to teach learners how to be curious and independent in fosturing their own ideas.
 
 # STRUCTURE
-Since I am the only one working on the project(_I'd appreciate and LOVE collaboration_), I will initially work on completing Mathematics lessons then later do Physical Sciences. If you wish to collab and do a different subject, you're more than welcome too. I often create the **Material(pdf)** then **Video** in preparing these lessons. Since most topics require the knowledge of other, I intend to cover the topics in the structure below :
+Since I am the only one working on the project(_I'd appreciate and LOVE collaboration_), I will initially work on completing Mathematics lessons then later do Physical Sciences. If you wish to collab and do a different subject, you're more than welcome too. I often create the **Material(pdf)** then **Video** in preparing these lessons. I also recently deployed a [website book](https://katleho-nyoni.github.io/Katieum-Book/). Since most topics require the knowledge of other, I intend to cover the topics in the structure below :
 
 ![](images/Plan.svg)
 
